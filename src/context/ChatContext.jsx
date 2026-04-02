@@ -5,7 +5,7 @@ import { useAuth } from "./AuthContext";
 
 const ChatContext = createContext();
 
-// 🛠️ GET THE RAW STRING URL FROM ENV
+//  GET THE RAW STRING URL FROM ENV
 const SOCKET_URL = import.meta.env.VITE_SOCKET_URL ;
 
 export const ChatProvider = ({ children }) => {
@@ -28,7 +28,7 @@ export const ChatProvider = ({ children }) => {
       newSocket.emit("setup", user._id);
 
       newSocket.on("connected", () => {
-        console.log("✅ Socket Engine Connected for:", user.name);
+        console.log("Socket Engine Connected for:", user.name);
       });
 
       // 3. Listen for incoming messages
@@ -39,7 +39,7 @@ export const ChatProvider = ({ children }) => {
         }
       });
 
-      // 🧹 CLEANUP: Stop listeners and disconnect when user logs out or closes app
+      // CLEANUP: Stop listeners and disconnect when user logs out or closes app
       return () => {
         newSocket.off("message_received");
         newSocket.off("connected");
