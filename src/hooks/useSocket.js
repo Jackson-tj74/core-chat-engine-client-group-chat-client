@@ -1,13 +1,14 @@
 /** @format */
 import { useEffect, useRef } from "react";
 import { io } from "socket.io-client";
+import API from "../services/api";
 
 const useSocket = (userId) => {
   const socket = useRef();
 
   useEffect(() => {
     // 1. Connect to Backend
-    socket.current = io("http://localhost:9000", {
+    socket.current = io(API, {
       reconnectionAttempts: 5,
     });
 

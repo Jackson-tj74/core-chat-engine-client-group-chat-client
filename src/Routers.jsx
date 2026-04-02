@@ -4,6 +4,7 @@ import Login from './Pages/Login';
 import Register from './Pages/Register';
 import Dashboard from './Pages/Dashboard';
 import { useAuth } from './context/AuthContext';
+import Home from './Pages/HomePage';
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useAuth();
@@ -17,7 +18,8 @@ export function Routers() {
   return (
     <BrowserRouter>
       <Routes>
-
+         <Route path="/" element={<Home/>}/>
+         <Route path="/home" element={<Home/>}/>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
